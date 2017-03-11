@@ -1,0 +1,13 @@
+* {
+  font-family: 'Nothing You Could Do', cursive;
+}
+html, body {
+  box-sizing: border-box;
+}
+main {
+  background-image: url("../images/old-town-inverted.png");
+  background-position: center;
+  height: 100vh;
+  width: auto;
+  
+}
