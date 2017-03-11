@@ -20,8 +20,14 @@ function getRandomIntInclusive(min, max) {
 
 const word = words[getRandomIntInclusive(0, words.length)];
 
-let elems = document.querySelector("div");
-elem[0].textContent = word;
-elem[3].textContent = word;
+let elem = document.getElementById("word");
 
+function makeUnders(word) {
+  letters = word.split('');
+  return letters.map(function(letter) {
+    return " _ "; 
+  }).join("");
+}
+
+elem.textContent = makeUnders(word);
 
