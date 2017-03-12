@@ -40,13 +40,32 @@ function onLoad() {
     document.getElementById("alphabet").textContent = alphabet.join(" ");
   //----------------
 
-  var anode = document.querySelector('div#a');
-  function showA() {
-    //document.getElementById("word").textContent = makeUnders(word, spot, letter) 
-    console.log(" the letter a")
+  let alphnode = document.querySelector('div#alphabet');
+  let anode = document.querySelector('p#a');
+  let enode = document.querySelector('p#e');
+  let inode = document.querySelector('p#i');
+  let onode = document.querySelector('p#o');
+  let unode = document.querySelector('p#u');
+
+  // find out if the chosen letter is in word
+  function getSpot(word, letter) {
+    return word.indexOf(letter);
   }
-  anode.onclick = showA;
-  anode.textContent = "here is the new letter: A"
+
+  // get the letter from the user
+  function getA() {
+    anode.textContent = replaceUnders(word, getSpot('a'), 'a')
+  }
+  function getGuess() {
+    anode.onclick = getA;
+    return letter;
+  }
+  
+  function replaceUnders() {
+    document.getElementById("word").textContent = makeUnders(word, spot, letter) 
+  }
+  wordnode.onclick = replaceUnders;
+  alphnode.textContent = alphabet.join(" ");
 }
 window.onload = onLoad;
 
