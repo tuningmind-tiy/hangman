@@ -19,16 +19,19 @@ function getRandomIntInclusive(min, max) {
 }
 // use random number as index to words to get a random word
 const word = words[getRandomIntInclusive(0, words.length)];
+
 // access dom for word
-let elem = document.getElementById("word");
-//make underscores for each letter of word
+let wordnode = document.getElementById("word");
+
+// ability to make underscores for each letter of word
 function makeUnders(word) {
   let letters = word.split('');
   return letters.map(function(letter) {
     return " _ "; 
   }).join("");
 }
-// put 
+
+// make underscores and put them in the dom 
 elem.textContent = makeUnders(word);
 
 let letter = document.querySelector('#letter').value 
