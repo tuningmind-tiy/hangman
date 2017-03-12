@@ -1,8 +1,9 @@
 * {
   font-family: 'Nothing You Could Do', cursive;
   color: #b1aeac;
+  font-size: 12px;
 }
-html, body {
+ html, body {
   box-sizing: border-box;
   background-color: #141414;
   height: 100%;
@@ -22,24 +23,10 @@ main {
   font-size: 10vh;
   padding-top: 20vh;
 }
-label {
-  color: #b1aeac;
-  display: flex;
-  justify-content: center;
-  font-size: 1.5em;
-  padding-top: 2vh;
-}
-input {
-  color: #141414;
-  text-align: center;
-  font-family: Courier;
-  font-size: 1em;
-}
 #alphabet {
   color: #b1aeac;
   display: flex;
   justify-content: center;
-  font-size: 1.5em;
+  font-size: 2em;
   padding-top: 2vh;
-
 }

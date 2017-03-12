@@ -11,12 +11,14 @@ var words = [
   "who","oil","its","now","find","long","down","day","did","get",
   "come","made","may","part"
 ];
+let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 // create random number
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 // use random number as index to words to get a random word
 const word = words[getRandomIntInclusive(0, words.length)];
 
@@ -24,23 +26,27 @@ const word = words[getRandomIntInclusive(0, words.length)];
 let wordnode = document.getElementById("word");
 
 // ability to make underscores for each letter of word
-function makeUnders(word) {
+function makeUnders(word, spot, letter) {
   let letters = word.split('');
-  return letters.map(function(letter) {
+  return letters.map(function(currentletter) {
+    if (currentletter === letter) {
+      return (" " + letter + " ");
+    } else {
     return " _ "; 
+    }
   }).join("");
 }
 
 // make underscores and put them in the dom 
-wordnode.textContent = makeUnders(word);
+var unders  = makeUnders(word);
+wordnode.textContent = unders;
+// make alphabet and put it in the dom
+document.getElementById("alphabet").textContent = alphabet.join(" ");
 
-// show user input
-function showInput(){
-  const userInput = document.querySelector('input#guess').value();
-  console.log(userInput);
-  document.querySelector('p#show').innerText = userInput;
-  }
-document.querySelector('input#check').onclick = showInput()
+
+
+
+
 
 
 
