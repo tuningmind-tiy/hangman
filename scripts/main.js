@@ -11,41 +11,29 @@ var words = [
   "who","oil","its","now","find","long","down","day","did","get",
   "come","made","may","part"
 ];
-
+// create random number
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
+// use random number as index to words to get a random word
 const word = words[getRandomIntInclusive(0, words.length)];
-
+// access dom for word
 let elem = document.getElementById("word");
-let alphabet = document.getElementById("alphabet");
-
-function makeUnders(word, spot, letter ) {
-  letters = word.split('');
-  return letters.map(function(currentletter) {
-    if (currentletter == letter) {
-      return (" " + letter + " ");
-    } else {
-      return " _ "; 
-    }
+//make underscores for each letter of word
+function makeUnders(word) {
+  let letters = word.split('');
+  return letters.map(function(letter) {
+    return " _ "; 
   }).join("");
 }
+// put 
+elem.textContent = makeUnders(word);
 
-let spot = 0;
-let letter = '';
-let available = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-elem.textContent = makeUnders(word, spot, '');
-let turns = 26;
-letter = document.getElementById("yourguess").textContent
-console.log("letter: ", letter);
-spot = word.indexOf(letter);
-console.log("spot: ", spot);
-if (available.indexOf(letter) > 0) {available.splice(spot, 1);}
-console.log("available: ", available);
-elem.textContent = makeUnders(word, spot, letter);
-alphabet.textContent = "letters remaining: " + available.join("");
+let letter = document.querySelector('#letter').value 
+document.on
+console.log(letter);
+
 
 
