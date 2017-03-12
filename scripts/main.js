@@ -34,8 +34,9 @@ function makeUnders(word) {
 // make underscores and put them in the dom 
 wordnode.textContent = makeUnders(word);
 
+// show user input
 function showInput(){
-  const userInput = document.querySelector('input#guess').value;
+  const userInput = document.querySelector('input#guess').value();
   console.log(userInput);
   document.querySelector('p#show').innerText = userInput;
   }
