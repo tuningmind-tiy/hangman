@@ -40,32 +40,45 @@ function onLoad() {
     document.getElementById("alphabet").textContent = alphabet.join(" ");
   //----------------
 
-  let alphnode = document.querySelector('div#alphabet');
-  let anode = document.querySelector('p#a');
-  let enode = document.querySelector('p#e');
-  let inode = document.querySelector('p#i');
-  let onode = document.querySelector('p#o');
-  let unode = document.querySelector('p#u');
+  //----------------
+    let alphnode = document.querySelector('div#alphabet');
+    let anode = document.querySelector('p#a');
+    let enode = document.querySelector('p#e');
+    let inode = document.querySelector('p#i');
+    let onode = document.querySelector('p#o');
+    let unode = document.querySelector('p#u');
+  //----------------
 
-  // find out if the chosen letter is in word
-  function getSpot(word, letter) {
-    return word.indexOf(letter);
-  }
+  //----------------
+    // find out if the chosen letter is in word; returns index
+      // of the letter, or -1
+      //function getSpot(word, letter) {
+      //  return word.indexOf(letter);
+      //}
 
-  // get the letter from the user
-  function getA() {
-    anode.textContent = replaceUnders(word, getSpot('a'), 'a')
+      //// get the letter from the user
+      //function getA() {
+      //  anode.textContent = replaceUnders(word, getSpot('a'), 'a')
+      //}
+      //function getGuess() {
+      //  anode.onclick = getA;
+      //  return letter;
+      //}
+      //
+      //function replaceUnders() {
+      //  document.getElementById("word").textContent = makeUnders(word, spot, letter) 
+      //}
+    //wordnode.onclick = replaceUnders;
+    alphnode.textContent = alphabet.join(" ");
+  //----------------
+
+  let inpt = document.querySelector('input');
+  letter = inpt.value;
+  let btn = document.querySelector('button');
+  btn.onclick = test;
+  function test() {
+    console.log("letter: ", letter);
   }
-  function getGuess() {
-    anode.onclick = getA;
-    return letter;
-  }
-  
-  function replaceUnders() {
-    document.getElementById("word").textContent = makeUnders(word, spot, letter) 
-  }
-  wordnode.onclick = replaceUnders;
-  alphnode.textContent = alphabet.join(" ");
 }
 window.onload = onLoad;
 
