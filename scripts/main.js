@@ -32,11 +32,14 @@ function makeUnders(word) {
 }
 
 // make underscores and put them in the dom 
-elem.textContent = makeUnders(word);
+wordnode.textContent = makeUnders(word);
 
-let letter = document.querySelector('#letter').value 
-document.on
-console.log(letter);
+function showInput(){
+  const userInput = document.querySelector('input#guess').value;
+  console.log(userInput);
+  document.querySelector('p#show').innerText = userInput;
+  }
+document.querySelector('input#check').onclick = showInput()
 
 
 
