@@ -14,62 +14,57 @@ function onLoad() {
       "come","made","may","part"
     ];
     let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    let spot = 0;
     let letter = '';
+    let unders = '';
     let wordnode = document.querySelector("div#word");
     let alphnode = document.querySelector('div#alphabet');
     let anode = document.querySelector('p#a');
     let inpt = document.querySelector('input#inpt');
-    let btn = document.querySelector('button#btn');
-  //----------------
     function getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     const word = words[getRandomIntInclusive(0, words.length)];
+    unders = word.split('').map(function(charact){return " _ "}).join('');
     console.log("The random word is '", word, "'");
+    console.log("unders starts as ", unders)
 
-
-    wordnode.textContent = makeUnders(word, spot, letter);
+    wordnode.textContent = unders;
     alphnode.textContent = alphabet.join(" ");
   //----------------
     function makeUnders(word, letter) {
       let letters = word.split('');
       return letters.map(function(currentletter) {
         if (currentletter === letter) {
-          return (" " + letter + " ");
-        } else {
-        return " _ "; 
-        }
+          return (letter)
+          } else if (currentletter !== "_") {
+            return currentletter
+          } else {
+          return "_"; 
+          }
       }).join("");
     }
+    unders = makeUnders(unders, letter);
   //----------------
       function getA() {
-        anode.textContent = replaceUnders(word, 'a')
+        anode.textContent = makeUnders(unders, 'a')
       }
       // get the letter from the user
       function getGuess() {
         anode.onclick = getA;
         return letter;
       }
-      // find out if the chosen letter is in word; returns index
-      // of the letter, or -1
-      function spotInWord(word, letter) {
-        return word.indexOf(letter);
-      }
-      function replaceUnders(word, letter) {
-        wordnode.textContent = 
-          makeUnders(word, letter) 
-      }
-      //replaceUnders("wagon", "g");
   //----------------
   
 
-  btn.addEventListener('click', function() {
+  inpt.addEventListener('change', function() {
     letter = inpt.value;
-    console.log("the current guess is '", letter, "'");
+    console.log(letter)
+    unders = makeUnders(word, letter);
+    wordnode.textContent = unders;
   })
+
    
 }
 window.onload = onLoad;
