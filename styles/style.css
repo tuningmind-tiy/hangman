@@ -10,30 +10,40 @@
   width: 100%;
   margin: 0;
 }
+input {
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  background-color: #141414;
+  color: #b1aeac;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 9vh;
+}
 main {
   background-image: url("../images/old-town-inverted.png");
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  align-content: stretch;
   height: 100%;
   width: 100%;
 }
 #word {
   color: #b1aeac;
-  display: flex;
-  justify-content: center;
   font-size: 10vh;
-  padding-top: 20vh;
+  padding-top: 10vh;
   letter-spacing: 1em;
 }
 p {
   color: #b1aeac;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
   margin: 0;
   padding: 2vh 0 0 0;
   height: 30px;
   width: 30px;
   font-size: 2em;
+  display: inline;
 }

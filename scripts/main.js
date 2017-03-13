@@ -16,6 +16,7 @@ function onLoad() {
     let letter = '';
     let unders = '';
     let used = [];
+    let turns = 20;
     let alphabet = {
      'a': document.querySelector('p#a'),
      'b': document.querySelector('p#b'),
@@ -105,7 +106,6 @@ function onLoad() {
     alphabet[letter].style.color = "#141414";
     inpt.value = '';
   })
-
    
 }
 window.onload = onLoad;
