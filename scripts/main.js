@@ -16,22 +16,11 @@ function onLoad() {
     let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     let spot = 0;
     let letter = '';
-    let wordnode = document.getElementById("word");
+    let wordnode = document.querySelector("div#word");
     let alphnode = document.querySelector('div#alphabet');
     let anode = document.querySelector('p#a');
     let inpt = document.querySelector('input#inpt');
     let btn = document.querySelector('button#btn');
-  //----------------
-    function makeUnders(word, spot, letter) {
-      let letters = word.split('');
-      return letters.map(function(currentletter) {
-        if (currentletter === letter) {
-          return (" " + letter + " ");
-        } else {
-        return " _ "; 
-        }
-      }).join("");
-    }
   //----------------
     function getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
@@ -43,10 +32,21 @@ function onLoad() {
 
 
     wordnode.textContent = makeUnders(word, spot, letter);
-    document.querySelector("div#alphabet").textContent = alphabet.join(" ");
+    alphnode.textContent = alphabet.join(" ");
+  //----------------
+    function makeUnders(word, letter) {
+      let letters = word.split('');
+      return letters.map(function(currentletter) {
+        if (currentletter === letter) {
+          return (" " + letter + " ");
+        } else {
+        return " _ "; 
+        }
+      }).join("");
+    }
   //----------------
       function getA() {
-        anode.textContent = replaceUnders(word, spot, 'a')
+        anode.textContent = replaceUnders(word, 'a')
       }
       // get the letter from the user
       function getGuess() {
@@ -58,16 +58,16 @@ function onLoad() {
       function spotInWord(word, letter) {
         return word.indexOf(letter);
       }
-      function replaceUnders() {
-        document.querySelector("div#word").textContent = 
-          makeUnders(word, spot, letter) 
+      function replaceUnders(word, letter) {
+        wordnode.textContent = 
+          makeUnders(word, letter) 
       }
-      //wordnode.onclick = replaceUnders;
+      //replaceUnders("wagon", "g");
   //----------------
   
-  letter = inpt.value;
 
   btn.addEventListener('click', function() {
+    letter = inpt.value;
     console.log("the current guess is '", letter, "'");
   })
    
