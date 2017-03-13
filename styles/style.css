@@ -23,6 +23,7 @@ main {
   justify-content: center;
   font-size: 10vh;
   padding-top: 20vh;
+  letter-spacing: 1em;
 }
 #alphabet {
   color: #b1aeac;

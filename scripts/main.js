@@ -26,19 +26,18 @@ function onLoad() {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     const word = words[getRandomIntInclusive(0, words.length)];
-    unders = word.split('').map(function(charact){return " _ "}).join('');
+    unders = word.split('').map(function(charact){return "_"}).join('');
     console.log("The random word is '", word, "'");
-    console.log("unders starts as ", unders)
 
     wordnode.textContent = unders;
     alphnode.textContent = alphabet.join(" ");
   //----------------
     function makeUnders(word, letter) {
       let letters = word.split('');
-      return letters.map(function(currentletter) {
+      return letters.map(function(currentletter, index) {
         if (currentletter === letter) {
           return (letter)
-          } else if (currentletter !== "_") {
+          } else if (unders[index] !== "_") {
             return currentletter
           } else {
           return "_"; 
@@ -63,6 +62,8 @@ function onLoad() {
     console.log(letter)
     unders = makeUnders(word, letter);
     wordnode.textContent = unders;
+    alphnode.
+    inpt.value = '';
   })
 
    
