@@ -67,12 +67,10 @@ function onLoad() {
   
   letter = inpt.value;
 
-  function test() {
-    console.log("the current guess is '", letter, "'");
-  }
   btn.addEventListener('click', function() {
-    test();
-  } );
+    console.log("the current guess is '", letter, "'");
+  })
+   
 }
 window.onload = onLoad;
 
