@@ -16,7 +16,7 @@ function onLoad() {
     let letter = '';
     let unders = '';
     let used = [];
-    let turns = 20;
+    let turns = 15;
     let alphabet = {
      'a': document.querySelector('p#a'),
      'b': document.querySelector('p#b'),
@@ -99,12 +99,19 @@ function onLoad() {
     unders = makeUnders(unders, letter);
   //----------------
   inpt.addEventListener('change', function() {
-    letter = inpt.value;
-    used.push(letter);
-    unders = makeUnders(word, letter);
-    wordnode.textContent = unders;
-    alphabet[letter].style.color = "#141414";
-    inpt.value = '';
+    if (turns === 0 ) {
+      document.querySelector('input#inpt').remove();
+      return document.querySelector('div#msg').textContent =
+        "game over"
+    } else {
+      letter = inpt.value;
+      used.push(letter);
+      unders = makeUnders(word, letter);
+      wordnode.textContent = unders;
+      alphabet[letter].style.color = "#141414";
+      inpt.value = '';
+      turns -= 1;
+    }
   })
    
 }

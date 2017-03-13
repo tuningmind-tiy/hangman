@@ -1,6 +1,8 @@
 * {
   font-family: 'Nothing You Could Do', cursive;
   color: #b1aeac;
+  padding: 0;
+  margin: 0;
   font-size: 12px;
 }
  html, body {
@@ -46,4 +48,11 @@ p {
   width: 30px;
   font-size: 2em;
   display: inline;
+}
+#msg {
+  font-size: 2em;
+  color: #b1aeac;
+  font-size: 2em;
+  text-align: center;
+  margin-top: 9vh;
 }
