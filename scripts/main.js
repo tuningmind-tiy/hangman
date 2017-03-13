@@ -17,13 +17,11 @@ function onLoad() {
     let spot = 0;
     let letter = '';
     let wordnode = document.getElementById("word");
-    function getRandomIntInclusive(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    const word = words[getRandomIntInclusive(0, words.length)];
-
+    let alphnode = document.querySelector('div#alphabet');
+    let anode = document.querySelector('p#a');
+    let inpt = document.querySelector('input#inpt');
+    let btn = document.querySelector('button#btn');
+  //----------------
     function makeUnders(word, spot, letter) {
       let letters = word.split('');
       return letters.map(function(currentletter) {
@@ -34,51 +32,47 @@ function onLoad() {
         }
       }).join("");
     }
+  //----------------
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    const word = words[getRandomIntInclusive(0, words.length)];
+    console.log("The random word is '", word, "'");
 
-    var unders  = makeUnders(word, spot, letter);
-    wordnode.textContent = unders;
-    document.getElementById("alphabet").textContent = alphabet.join(" ");
-  //----------------
 
+    wordnode.textContent = makeUnders(word, spot, letter);
+    document.querySelector("div#alphabet").textContent = alphabet.join(" ");
   //----------------
-    let alphnode = document.querySelector('div#alphabet');
-    let anode = document.querySelector('p#a');
-    let enode = document.querySelector('p#e');
-    let inode = document.querySelector('p#i');
-    let onode = document.querySelector('p#o');
-    let unode = document.querySelector('p#u');
-  //----------------
-
-  //----------------
-    // find out if the chosen letter is in word; returns index
+      function getA() {
+        anode.textContent = replaceUnders(word, spot, 'a')
+      }
+      // get the letter from the user
+      function getGuess() {
+        anode.onclick = getA;
+        return letter;
+      }
+      // find out if the chosen letter is in word; returns index
       // of the letter, or -1
-      //function getSpot(word, letter) {
-      //  return word.indexOf(letter);
-      //}
-
-      //// get the letter from the user
-      //function getA() {
-      //  anode.textContent = replaceUnders(word, getSpot('a'), 'a')
-      //}
-      //function getGuess() {
-      //  anode.onclick = getA;
-      //  return letter;
-      //}
-      //
-      //function replaceUnders() {
-      //  document.getElementById("word").textContent = makeUnders(word, spot, letter) 
-      //}
-    //wordnode.onclick = replaceUnders;
-    alphnode.textContent = alphabet.join(" ");
+      function spotInWord(word, letter) {
+        return word.indexOf(letter);
+      }
+      function replaceUnders() {
+        document.querySelector("div#word").textContent = 
+          makeUnders(word, spot, letter) 
+      }
+      //wordnode.onclick = replaceUnders;
   //----------------
-
-  let inpt = document.querySelector('input');
+  
   letter = inpt.value;
-  let btn = document.querySelector('button');
-  btn.onclick = test;
+
   function test() {
-    console.log("letter: ", letter);
+    console.log("the current guess is '", letter, "'");
   }
+  btn.addEventListener('click', function() {
+    test();
+  } );
 }
 window.onload = onLoad;
 
