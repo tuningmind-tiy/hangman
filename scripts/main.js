@@ -13,12 +13,64 @@ function onLoad() {
       "who","oil","its","now","find","long","down","day","did","get",
       "come","made","may","part"
     ];
-    let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     let letter = '';
     let unders = '';
+    let used = [];
+    let alphabet = {
+     'a': document.querySelector('p#a'),
+     'b': document.querySelector('p#b'),
+     'c': document.querySelector('p#c'),
+     'd': document.querySelector('p#d'),
+     'e': document.querySelector('p#e'),
+     'f': document.querySelector('p#f'),
+     'g': document.querySelector('p#g'),
+     'h': document.querySelector('p#h'),
+     'i': document.querySelector('p#i'),
+     'j': document.querySelector('p#j'),
+     'k': document.querySelector('p#k'),
+     'l': document.querySelector('p#l'),
+     'm': document.querySelector('p#m'),
+     'n': document.querySelector('p#n'),
+     'o': document.querySelector('p#o'),
+     'p': document.querySelector('p#p'),
+     'q': document.querySelector('p#q'),
+     'r': document.querySelector('p#r'),
+     's': document.querySelector('p#s'),
+     't': document.querySelector('p#t'),
+     'u': document.querySelector('p#u'),
+     'v': document.querySelector('p#v'),
+     'w': document.querySelector('p#w'),
+     'x': document.querySelector('p#x'),
+     'y': document.querySelector('p#y'),
+     'z': document.querySelector('p#z')
+    }
     let wordnode = document.querySelector("div#word");
-    let alphnode = document.querySelector('div#alphabet');
-    let anode = document.querySelector('p#a');
+      let anode = document.querySelector('p#a');
+      let bnode = document.querySelector('p#b');
+      let cnode = document.querySelector('p#c');
+      let dnode = document.querySelector('p#d');
+      let enode = document.querySelector('p#e');
+      let fnode = document.querySelector('p#f');
+      let gnode = document.querySelector('p#g');
+      let hnode = document.querySelector('p#h');
+      let inode = document.querySelector('p#i');
+      let jnode = document.querySelector('p#j');
+      let knode = document.querySelector('p#k');
+      let lnode = document.querySelector('p#l');
+      let mnode = document.querySelector('p#m');
+      let nnode = document.querySelector('p#n');
+      let onode = document.querySelector('p#o');
+      let pnode = document.querySelector('p#p');
+      let qnode = document.querySelector('p#q');
+      let rnode = document.querySelector('p#r');
+      let snode = document.querySelector('p#s');
+      let tnode = document.querySelector('p#t');
+      let unode = document.querySelector('p#u');
+      let vnode = document.querySelector('p#v');
+      let wnode = document.querySelector('p#w');
+      let xnode = document.querySelector('p#x');
+      let ynode = document.querySelector('p#y');
+      let znode = document.querySelector('p#z');
     let inpt = document.querySelector('input#inpt');
     function getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
@@ -30,7 +82,6 @@ function onLoad() {
     console.log("The random word is '", word, "'");
 
     wordnode.textContent = unders;
-    alphnode.textContent = alphabet.join(" ");
   //----------------
     function makeUnders(word, letter) {
       let letters = word.split('');
@@ -46,23 +97,12 @@ function onLoad() {
     }
     unders = makeUnders(unders, letter);
   //----------------
-      function getA() {
-        anode.textContent = makeUnders(unders, 'a')
-      }
-      // get the letter from the user
-      function getGuess() {
-        anode.onclick = getA;
-        return letter;
-      }
-  //----------------
-  
-
   inpt.addEventListener('change', function() {
     letter = inpt.value;
-    console.log(letter)
+    used.push(letter);
     unders = makeUnders(word, letter);
     wordnode.textContent = unders;
-    alphnode.
+    alphabet[letter].style.color = "#141414";
     inpt.value = '';
   })
 
