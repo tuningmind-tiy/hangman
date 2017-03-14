@@ -88,13 +88,14 @@ function onLoad() {
   //----------------
   inpt.addEventListener('change', function() {
     if (turns === 0 ) {
-      return msg.textContent =
-        "game over, no win this time"
+      msg.textContent = "game over, no win this time"
+      return wordnode.textContent = word; 
     } else if (used.indexOf(inpt.value) > -1) {
       inpt.value = '';
       msg.textContent = "You already used that letter"; 
     } else {
       msg.textContent = '';
+      msg.textContent = turns + " turns remaining"
       letter = inpt.value;
       used.push(letter);
       unders = makeUnders(word, letter);
