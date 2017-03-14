@@ -1,49 +1,36 @@
 function onLoad() {
   //----------------
-    let words = [
-      "the","of","and","a","to","in","is","you","that","it","he",
-      "was","for","on","are","as","with","his","they","I","at","be",
-      "this","have","from","or","one","had","by","word","but","not",
-      "what","all","were","we","when","your","can","said","there",
-      "use","an","each","which","she","do","how","their","if","will",
-      "up","other","about","out","many","then","them","these","so",
-      "some","her","would","make","like","him","into","time","has",
-      "look","two","more","write","go","see","number","no","way",
-      "could","people","my","than","first","water","been","call",
-      "who","oil","its","now","find","long","down","day","did","get",
-      "come","made","may","part"
-    ];
     let letter = '';
     let unders = '';
     let used = [];
     let turns = 15;
     let alphabet = {
-     'a': document.querySelector('p#a'),
-     'b': document.querySelector('p#b'),
-     'c': document.querySelector('p#c'),
-     'd': document.querySelector('p#d'),
-     'e': document.querySelector('p#e'),
-     'f': document.querySelector('p#f'),
-     'g': document.querySelector('p#g'),
-     'h': document.querySelector('p#h'),
-     'i': document.querySelector('p#i'),
-     'j': document.querySelector('p#j'),
-     'k': document.querySelector('p#k'),
-     'l': document.querySelector('p#l'),
-     'm': document.querySelector('p#m'),
-     'n': document.querySelector('p#n'),
-     'o': document.querySelector('p#o'),
-     'p': document.querySelector('p#p'),
-     'q': document.querySelector('p#q'),
-     'r': document.querySelector('p#r'),
-     's': document.querySelector('p#s'),
-     't': document.querySelector('p#t'),
-     'u': document.querySelector('p#u'),
-     'v': document.querySelector('p#v'),
-     'w': document.querySelector('p#w'),
-     'x': document.querySelector('p#x'),
-     'y': document.querySelector('p#y'),
-     'z': document.querySelector('p#z')
+      'a': document.querySelector('p#a'),
+      'b': document.querySelector('p#b'),
+      'c': document.querySelector('p#c'),
+      'd': document.querySelector('p#d'),
+      'e': document.querySelector('p#e'),
+      'f': document.querySelector('p#f'),
+      'g': document.querySelector('p#g'),
+      'h': document.querySelector('p#h'),
+      'i': document.querySelector('p#i'),
+      'j': document.querySelector('p#j'),
+      'k': document.querySelector('p#k'),
+      'l': document.querySelector('p#l'),
+      'm': document.querySelector('p#m'),
+      'n': document.querySelector('p#n'),
+      'o': document.querySelector('p#o'),
+      'p': document.querySelector('p#p'),
+      'q': document.querySelector('p#q'),
+      'r': document.querySelector('p#r'),
+      's': document.querySelector('p#s'),
+      't': document.querySelector('p#t'),
+      'u': document.querySelector('p#u'),
+      'v': document.querySelector('p#v'),
+      'w': document.querySelector('p#w'),
+      'x': document.querySelector('p#x'),
+      'y': document.querySelector('p#y'),
+      'z': document.querySelector('p#z')
     }
     let wordnode = document.querySelector("div#word");
       let anode = document.querySelector('p#a');
@@ -73,6 +60,7 @@ function onLoad() {
       let ynode = document.querySelector('p#y');
       let znode = document.querySelector('p#z');
     let inpt = document.querySelector('input#inpt');
+    let msg = document.querySelector('div#msg');
     function getRandomIntInclusive(min, max) {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -100,10 +88,16 @@ function onLoad() {
   //----------------
   inpt.addEventListener('change', function() {
     if (turns === 0 ) {
-      document.querySelector('input#inpt').remove();
-      return document.querySelector('div#msg').textContent =
-        "game over"
+      inpt.remove();
+      return msg.textContent =
+        "game over, no win this time"
+    } else if (used.indexOf(inpt.value) > -1) {
+      msg.style.color = "DeepPink";
+      msg.textContent = "You already used that letter"; 
+      inpt.value = '';
     } else {
+      msg.textContent = '';
+      msg.style.color = "#b1aeac";
       letter = inpt.value;
       used.push(letter);
       unders = makeUnders(word, letter);
@@ -111,6 +105,11 @@ function onLoad() {
       alphabet[letter].style.color = "#141414";
       inpt.value = '';
       turns -= 1;
+      if (unders === word) {
+        msg.textContent = "You won!";
+        msg.style.color = "DeepPink";
+        inpt.remove();
+      }
     }
   })
    

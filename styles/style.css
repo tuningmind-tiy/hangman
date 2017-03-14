@@ -37,8 +37,8 @@ main {
 #word {
   color: #b1aeac;
   font-size: 10vh;
-  padding-top: 10vh;
-  letter-spacing: 1em;
+  padding-top: 8;
+  letter-spacing: 0.5em;
 }
 p {
   color: #b1aeac;
@@ -55,4 +55,6 @@ p {
   font-size: 2em;
   text-align: center;
   margin-top: 9vh;
+  width: 50%;
+  height: 30px;
 }
