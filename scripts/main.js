@@ -88,16 +88,13 @@ function onLoad() {
   //----------------
   inpt.addEventListener('change', function() {
     if (turns === 0 ) {
-      inpt.remove();
       return msg.textContent =
         "game over, no win this time"
     } else if (used.indexOf(inpt.value) > -1) {
-      msg.style.color = "DeepPink";
-      msg.textContent = "You already used that letter"; 
       inpt.value = '';
+      msg.textContent = "You already used that letter"; 
     } else {
       msg.textContent = '';
-      msg.style.color = "#b1aeac";
       letter = inpt.value;
       used.push(letter);
       unders = makeUnders(word, letter);
