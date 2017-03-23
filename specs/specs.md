@@ -117,3 +117,11 @@ Skilled Sorcerer mode plus any or all of the following:
 - Make it sound great by playing a [death dirge](https://duckduckgo.com/?q=death+dirge) or other such audio when the user guesses incorrectly.
 - When the player loses, play a video or show some funny losing animation.
 
+git tag --annotate v0.1.0 -m "original attempt"
+add tdd framework
+master never loses a feature
+when you have a new feature, merge "take-tdd" to master
+add test, verify fails
+write code to pass test
+
+

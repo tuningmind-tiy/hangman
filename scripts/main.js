@@ -3,7 +3,7 @@ function onLoad() {
     let letter = '';
     let unders = '';
     let used = [];
-    let turns = 15;
+    let turns = 20;
     let alphabet = {
       'a': document.querySelector('p#a'),
       'b': document.querySelector('p#b'),
@@ -86,27 +86,37 @@ function onLoad() {
     }
     unders = makeUnders(unders, letter);
   //----------------
+    function isLetterInWord (word, letter) {
+      return (word.indexOf(letter) > -1)
+    }
+  //----------------
   inpt.addEventListener('change', function() {
     if (turns === 0 ) {
       msg.textContent = "game over, no win this time"
+      inpt.value = '';
+      // display correct word
       return wordnode.textContent = word; 
+      // if the guessed letter is in the used array
     } else if (used.indexOf(inpt.value) > -1) {
+      // clear the guessed letter
       inpt.value = '';
       msg.textContent = "You already used that letter"; 
     } else {
+      // the guessed letter has not been used
+      // and there are turns remaining
+      // clear any previous messages on the screen
       msg.textContent = '';
-      msg.textContent = turns + " turns remaining"
+      // grab the guessed letter
       letter = inpt.value;
+      isLetterInWord(word, letter) ? turns = turns : turns -= 1;
       used.push(letter);
       unders = makeUnders(word, letter);
       wordnode.textContent = unders;
       alphabet[letter].style.color = "#141414";
       inpt.value = '';
-      turns -= 1;
+      msg.textContent = turns + " turns remaining"
       if (unders === word) {
         msg.textContent = "You won!";
-        msg.style.color = "DeepPink";
-        inpt.remove();
       }
     }
   })
