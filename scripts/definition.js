@@ -2,7 +2,8 @@ window.onload = function () {
 
   const app_id = '35678f4b'
   const app_key = '236ca3c17167026e0f0068310bbda7f8'
-  const base_url = 'https://od-api.oxforddictionaries.com/api/v1'
+  //const base_url = 'https://od-api.oxforddictionaries.com/api/v1'
+  const base_url =  'https://wordsapiv1.p.mashape.com/words/example'
   const language = 'en'
   const word_id = 'word'
   const url = base_url// + '/' + language + '/' + word_id + '/definitions'
@@ -13,10 +14,10 @@ window.onload = function () {
     if ("withCredentials" in xhr) {
       // XHR for Chrome/Firefox/Opera/Safari.
       xhr.open(method, url, true);
-      xhr.overrideMimeType('application/json')
-      xhr.setRequestHeader('authentication', app_id)
-      xhr.setRequestHeader('app_id', app_id);
-      xhr.setRequestHeader('app_key', app_key);
+      // xhr.overrideMimeType('application/json')
+      // xhr.setRequestHeader('authentication', app_id)
+      // xhr.setRequestHeader('app_id', app_id);
+      // xhr.setRequestHeader('app_key', app_key);
     } else if (typeof XDomainRequest != "undefined") {
       // XDomainRequest for IE.
       xhr = new XDomainRequest();
