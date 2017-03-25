@@ -3,7 +3,7 @@ function onLoad() {
     let letter = '';
     let unders = '';
     let used = [];
-    let turns = 15;
+    let turns = 20;
     let alphabet = {
       'a': document.querySelector('p#a'),
       'b': document.querySelector('p#b'),
@@ -108,7 +108,6 @@ function onLoad() {
       alphabet[letter].style.color = "#141414";
       inpt.value = '';
       msg.textContent = turns + " turns remaining"
-      turns -= 1;
       if (unders === word) {
         msg.textContent = "You won!";
         msg.style.color = "DeepPink";
