@@ -1,5 +1,5 @@
-function onLoad() {
-  //----------------
+window.onload = function () {
+
     let letter = '';
     let unders = '';
     let used = [];
@@ -120,7 +120,5 @@ function onLoad() {
       }
     }
   })
-   
 }
-window.onload = onLoad;
 
