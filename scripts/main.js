@@ -85,6 +85,11 @@ function onLoad() {
       }).join("");
     }
     unders = makeUnders(unders, letter);
+
+    function isLetterInWord (word, letter) {
+            return (word.indexOf(letter) > -1)
+                  }
+
   //----------------
   inpt.addEventListener('change', function() {
     if (turns === 0 ) {
@@ -95,13 +100,14 @@ function onLoad() {
       msg.textContent = "You already used that letter"; 
     } else {
       msg.textContent = '';
-      msg.textContent = turns + " turns remaining"
       letter = inpt.value;
+      isLetterInWord(word, letter) ? turns = turns : turns -= 1;
       used.push(letter);
       unders = makeUnders(word, letter);
       wordnode.textContent = unders;
       alphabet[letter].style.color = "#141414";
       inpt.value = '';
+      msg.textContent = turns + " turns remaining"
       turns -= 1;
       if (unders === word) {
         msg.textContent = "You won!";
