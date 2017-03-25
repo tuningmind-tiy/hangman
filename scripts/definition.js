@@ -14,7 +14,7 @@ window.onload = function () {
     if ("withCredentials" in xhr) {
       // XHR for Chrome/Firefox/Opera/Safari.
       xhr.open(method, url, true);
-      // xhr.overrideMimeType('application/json')
+      xhr.overrideMimeType('application/json')
       // xhr.setRequestHeader('authentication', app_id)
       // xhr.setRequestHeader('app_id', app_id);
       // xhr.setRequestHeader('app_key', app_key);
