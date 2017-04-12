@@ -67,6 +67,7 @@ function onLoad() {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     const word = words[getRandomIntInclusive(0, words.length)];
+    console.log("the word is: ", word)
     unders = word.split('').map(function(charact){return "_"}).join('');
     console.log("The random word is '", word, "'");
 
@@ -106,7 +107,6 @@ function onLoad() {
       if (unders === word) {
         msg.textContent = "You won!";
         msg.style.color = "DeepPink";
-        inpt.remove();
       }
     }
   })
