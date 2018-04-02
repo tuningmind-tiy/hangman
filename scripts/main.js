@@ -90,6 +90,7 @@ function onLoad() {
             return (word.indexOf(letter) > -1)
                   }
 
+	
   //----------------
   inpt.addEventListener('change', function() {
     if (turns === 0 ) {
@@ -105,13 +106,14 @@ function onLoad() {
       used.push(letter);
       unders = makeUnders(word, letter);
       wordnode.textContent = unders;
-      alphabet[letter].style.color = "#141414";
+      //alphabet[letter].style.color = "black";
+	  alphabet[letter].style = "visibility: hidden";
       inpt.value = '';
       msg.textContent = turns + " turns remaining"
       if (unders === word) {
         msg.textContent = "You won!";
         msg.style.color = "DeepPink";
-        inpt.remove();
+        inpt.style = "visibility: hidden";
       }
     }
   })

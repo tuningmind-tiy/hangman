@@ -1,9 +1,9 @@
 * {
   font-family: 'Nothing You Could Do', cursive;
   color: #b1aeac;
+  font-size: 12px;
   padding: 0;
   margin: 0;
-  font-size: 12px;
 }
  html, body {
   box-sizing: border-box;
@@ -12,49 +12,94 @@
   width: 100%;
   margin: 0;
 }
+main {
+  background-image: url("../images/old-town-inverted.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  align-content: stretch;
+  height: 100vh;
+  width: 100vw;
+}
 input {
   justify-content: center;
-  height: 30px;
-  width: 30px;
+  height: 1em;
+  width: 1em;
   background-color: #141414;
   color: #b1aeac;
   font-size: 2em;
   text-align: center;
   margin-top: 9vh;
 }
-main {
-  background-image: url("../images/old-town-inverted.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-items: center;
-  align-content: stretch;
-  height: 100%;
-  width: 100%;
+#msg {
+  color: #b1aeac;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 2vh;
+  width: 50vw;
+  height: 30px;
 }
 #word {
   color: #b1aeac;
-  font-size: 10vh;
-  padding-top: 8;
+  font-size: 2em;
+  padding-top: 1vh;
   letter-spacing: 0.5em;
 }
 p {
   color: #b1aeac;
   margin: 0;
   padding: 2vh 0 0 0;
-  height: 30px;
-  width: 30px;
-  font-size: 2em;
+  height: 1em;
+  width: 1em;
+  font-size: 1em;
   display: inline;
 }
-#msg {
-  font-size: 2em;
-  color: #b1aeac;
-  font-size: 2em;
-  text-align: center;
-  margin-top: 9vh;
-  width: 50%;
-  height: 30px;
+@media screen and (min-width: 1000px) {
+  * {
+	font-size: 26px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  * {
+	font-size: 26px;
+  }
+}
+@media screen and (max-width: 900px) {
+  * {
+	font-size: 24px;
+  }
+}
+@media screen and (max-width: 800px) {
+  * {
+	font-size: 22px;
+  }
+}
+@media screen and (max-width: 700px) {
+  * {
+	font-size: 20px;
+  }
+}
+@media screen and (max-width: 600px) {
+  * {
+	font-size: 18px;
+  }
+}
+@media screen and (max-width: 500px) {
+  * {
+	font-size: 16px;
+  }
+}
+@media screen and (max-width: 400px) {
+  * {
+	font-size: 14px;
+  }
+}
+@media screen and (max-width: 300px) {
+  * {
+	font-size: 12px;
+  }
 }
